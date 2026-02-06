@@ -5,7 +5,7 @@ export default defineConfig({
   plugins: [react()],
   envPrefix: ['VITE_', 'API_'],
   build: {
-    outDir: '../frontend',
+    outDir: 'dist',
     emptyOutDir: true
   },
   server: {
