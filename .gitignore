@@ -30,3 +30,7 @@ coverage/
 # Temporary files
 *.tmp
 *.temp
+
+# Chrono CLI
+.chrono/
+.cursor/skills/
