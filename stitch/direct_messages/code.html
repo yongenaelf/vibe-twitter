@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Chirp | Direct Messages</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#0d7ff2",
+                        "background-light": "#f5f7f8",
+                        "background-dark": "#101922",
+                    },
+                    fontFamily: {
+                        "display": ["Plus Jakarta Sans"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Plus Jakarta Sans', sans-serif; }
+        .custom-scrollbar::-webkit-scrollbar { width: 4px; }
+        .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: #223649; border-radius: 10px; }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-white font-display overflow-hidden h-screen">
+<div class="flex h-full w-full max-w-[1440px] mx-auto">
+<!-- Sidebar Navigation -->
+<aside class="w-[275px] border-r border-slate-200 dark:border-slate-800 flex flex-col justify-between py-4 px-4 h-full shrink-0">
+<div class="flex flex-col gap-2">
+<div class="flex items-center gap-3 px-3 py-3 mb-4">
+<div class="bg-primary size-10 rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-white text-2xl">flutter_dash</span>
+</div>
+<h1 class="text-xl font-bold tracking-tight">Chirp</h1>
+</div>
+<nav class="flex flex-col gap-1">
+<a class="flex items-center gap-4 px-4 py-3 rounded-full hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors" href="#">
+<span class="material-symbols-outlined text-2xl">home</span>
+<span class="text-lg font-medium">Home</span>
+</a>
+<a class="flex items-center gap-4 px-4 py-3 rounded-full hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors" href="#">
+<span class="material-symbols-outlined text-2xl">explore</span>
+<span class="text-lg font-medium">Explore</span>
+</a>
+<a class="flex items-center gap-4 px-4 py-3 rounded-full hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors" href="#">
+<span class="material-symbols-outlined text-2xl">notifications</span>
+<span class="text-lg font-medium">Notifications</span>
+</a>
+<a class="flex items-center gap-4 px-4 py-3 rounded-full bg-slate-200 dark:bg-slate-800 transition-colors" href="#">
+<span class="material-symbols-outlined text-2xl" style="font-variation-settings: 'FILL' 1">mail</span>
+<span class="text-lg font-bold">Messages</span>
+</a>
+<a class="flex items-center gap-4 px-4 py-3 rounded-full hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors" href="#">
+<span class="material-symbols-outlined text-2xl">person</span>
+<span class="text-lg font-medium">Profile</span>
+</a>
+<a class="flex items-center gap-4 px-4 py-3 rounded-full hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors" href="#">
+<span class="material-symbols-outlined text-2xl">more_horiz</span>
+<span class="text-lg font-medium">More</span>
+</a>
+</nav>
+<button class="w-full bg-primary hover:bg-primary/90 text-white font-bold py-3 px-4 rounded-full mt-4 transition-all shadow-lg">
+                    Chirp
+                </button>
+</div>
+<div class="flex items-center gap-3 p-3 hover:bg-slate-200 dark:hover:bg-slate-800 rounded-full cursor-pointer mt-auto">
+<div class="size-10 rounded-full bg-cover bg-center border border-slate-700" data-alt="User profile avatar circle" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuD0CiHKBGkJ1_gmFxZuhk3ZqyoDCSLQrfreXc0HmmJvJtE1zdo_DbRM5YE3U3nmN3UBDYKoTL6EC4ZJvFHYVWJkEcxQwMcy6tQ9gJ-uqFjP0d5jZx1X9T27E4xSd5-JicDyl7fGidI148C-8vBoOZW18-Hvt87PpUvQXwXjHFIfRFCcsBgvRWSc_RNIaAjLHYiARUA-JIqoPOP6VXO_SZuEG0hft2dNKXwCtyBeHGvTfvbZgirg_A66T4SWeRyPTcLD2vgUYLb7awrT')"></div>
+<div class="flex flex-col flex-1">
+<p class="font-bold text-sm">Alex Rivera</p>
+<p class="text-slate-500 text-xs">@arivera</p>
+</div>
+<span class="material-symbols-outlined text-slate-500">more_horiz</span>
+</div>
+</aside>
+<!-- Message List Pane -->
+<main class="w-[390px] border-r border-slate-200 dark:border-slate-800 flex flex-col h-full bg-background-light dark:bg-background-dark">
+<header class="p-4 flex items-center justify-between sticky top-0 z-10 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md">
+<h2 class="text-xl font-bold">Messages</h2>
+<div class="flex gap-2">
+<button class="p-2 hover:bg-slate-200 dark:hover:bg-slate-800 rounded-full transition-colors">
+<span class="material-symbols-outlined">settings</span>
+</button>
+<button class="p-2 hover:bg-slate-200 dark:hover:bg-slate-800 rounded-full transition-colors">
+<span class="material-symbols-outlined">mail_lock</span>
+</button>
+</div>
+</header>
+<div class="px-4 pb-4">
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-500">search</span>
+<input class="w-full bg-slate-100 dark:bg-slate-800 border-none rounded-full pl-10 pr-4 py-2 focus:ring-1 focus:ring-primary text-sm transition-all" placeholder="Search Direct Messages" type="text"/>
+</div>
+</div>
+<div class="flex-1 overflow-y-auto custom-scrollbar">
+<!-- Message Item: Active -->
+<div class="flex items-center gap-3 p-4 bg-slate-100 dark:bg-slate-800/50 border-r-4 border-primary cursor-pointer">
+<div class="size-12 rounded-full bg-cover bg-center shrink-0" data-alt="Jordan Smith avatar" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuC_fbQF1QFY3tcXtL35bG3PBkYxMIZRpMjUEFNME6NUGr45XHh4B4-cqQ8GD-jYLPwH_jhZ2uiYjKzjMxSb0x1J2dWUdt5mJXk4Na2-x_8o8VaATKtaxCp8XEP2NrWj1-wG_w_Ge1dc-lQqwFS_Mmk77aPP-mpi9KQQVegz8E-vsOrDkTdepfFeJt-Egxbqg6NnUmbnPYgM8a8OhSCTZWeJZ92wSPL1ay4s2Yb70pT0FfUIfYOiR97abC0IQvRQKoDx2JLxZEYwmZAp')"></div>
+<div class="flex flex-col flex-1 min-w-0">
+<div class="flex justify-between items-center gap-1">
+<p class="font-bold truncate text-sm">Jordan Smith</p>
+<span class="text-xs text-slate-500 shrink-0">2h</span>
+</div>
+<p class="text-slate-500 text-sm truncate">Let's catch up later today. I have some updates on the new project.</p>
+</div>
+</div>
+<!-- Message Items -->
+<div class="flex items-center gap-3 p-4 hover:bg-slate-100 dark:hover:bg-slate-800 cursor-pointer transition-colors">
+<div class="size-12 rounded-full bg-cover bg-center shrink-0" data-alt="Sarah Chen avatar" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAqTJMhtc8kKNwSN8OjT7-5_g568KUq5qiaCOVDZooV2EIXi5HSgEkz-m54kcyhDq2g74tPZn4ZBgMbm44S9FEvXc8pJ9-MBHHI9iiiEiJ3Y3_dbjOFaBFsvP6A80uOWtE2a5klQGG0_X1rzx1jFPONhG_Wt8QpJwNa8UgbNjtz3Kpd8tQW4JO_mKcQgHIiwXbq5O0sLKgm__AYXmsrI7uyWoKZYLlXAzr5DV61fYUkmanGWyxztfq16ZglVaap3pRPLbqVap5fnTPt')"></div>
+<div class="flex flex-col flex-1 min-w-0">
+<div class="flex justify-between items-center gap-1">
+<p class="font-bold truncate text-sm">Sarah Chen</p>
+<span class="text-xs text-slate-500 shrink-0">5h</span>
+</div>
+<p class="text-slate-500 text-sm truncate">Did you see the final design for the landing page?</p>
+</div>
+</div>
+<div class="flex items-center gap-3 p-4 hover:bg-slate-100 dark:hover:bg-slate-800 cursor-pointer transition-colors">
+<div class="size-12 rounded-full bg-cover bg-center shrink-0" data-alt="Marketing Team avatar" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBQ5Tg9dwhM2DVkNxi6kVieFdIJmoIvLGCNSYLX0ZbUZM0LSgeqpQeOG4sQ-ecIlNtgavp_WAGENobjBLmRVQMT8ZBUd7qYL66KTtRboqhiJLw_XZrAZJB1Xqk78rMQ0fyDQ-OmSR35qNl3zTOdNHTg_XDftP_MGRuQuhImVgfkD9VKbf_ABgGScDpSzyMDfl0B3lKhsF5VSWc_cRkEj2wMd-Ny6-s9DW2RwR2MoA7ycZLb5Wf0SDYIHB5CZuVth8I5_Ecpap5f_1Xj')"></div>
+<div class="flex flex-col flex-1 min-w-0">
+<div class="flex justify-between items-center gap-1">
+<p class="font-bold truncate text-sm">Marketing Team</p>
+<span class="text-xs text-slate-500 shrink-0">Dec 12</span>
+</div>
+<p class="text-slate-500 text-sm truncate">Meeting starts in 5 minutes! Everyone ready?</p>
+</div>
+</div>
+<div class="flex items-center gap-3 p-4 hover:bg-slate-100 dark:hover:bg-slate-800 cursor-pointer transition-colors">
+<div class="size-12 rounded-full bg-cover bg-center shrink-0" data-alt="James Wilson avatar" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBbPBnDQCS9zdCWEEkhStS5dq4dNyEx0rboOvFa-XfL_zlKpXd35cF-WaEwbDYQ5F3QFR_UqVHFbKvQdOZLGfMcGcTb5qdPJ3jWbZap44S_qL5pwkRyNaHHiJRNaCehOI4_zwvtOHv9VpAea4RGUjlNobrkAnsUilgqma_sUNzQ5AhvyLPg_MJXe3bW5NrjGzfgU48ugDNLCMCU2M__dCecsg6EzVWqGYmghRKJXOUf4cV5drgataw6qtfrO6v1uQeS0ru6YbmsXxyc')"></div>
+<div class="flex flex-col flex-1 min-w-0">
+<div class="flex justify-between items-center gap-1">
+<p class="font-bold truncate text-sm">James Wilson</p>
+<span class="text-xs text-slate-500 shrink-0">Dec 11</span>
+</div>
+<p class="text-slate-500 text-sm truncate">The pull request has been approved and merged.</p>
+</div>
+</div>
+<div class="flex items-center gap-3 p-4 hover:bg-slate-100 dark:hover:bg-slate-800 cursor-pointer transition-colors">
+<div class="size-12 rounded-full bg-cover bg-center shrink-0" data-alt="Elena Rodriguez avatar" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDujChBbAbJVIgOBqg5BIdMHip1sRNfCL9eOP_7XlH_0wBO-xHxSorT2oMYN50wSAduVJa67v-K0ndQYBBGqzHbwyuFo7aUnvV-h5zmmVFR8evqV-5GbweHFEsgw9G2z88etdlw2tdgKc_kMgYUkzhX2gFnn3UjNzb5wQVFExX7QDr50aXiQK0lmjoLz401-E1iIsP0-ve3PPMuGtSPnqwpPFOniZwA2KR-Tazc-V883Ar2PKRAiBgdwEBh_fA3b41NvMp1wUDHCNfr')"></div>
+<div class="flex flex-col flex-1 min-w-0">
+<div class="flex justify-between items-center gap-1">
+<p class="font-bold truncate text-sm">Elena Rodriguez</p>
+<span class="text-xs text-slate-500 shrink-0">Dec 10</span>
+</div>
+<p class="text-slate-500 text-sm truncate">Thanks for the help yesterday! You're a lifesaver.</p>
+</div>
+</div>
+</div>
+</main>
+<!-- Chat Window Pane -->
+<section class="flex-1 flex flex-col h-full bg-background-light dark:bg-background-dark">
+<!-- Chat Header -->
+<header class="h-16 px-4 flex items-center justify-between border-b border-slate-200 dark:border-slate-800 sticky top-0 z-10 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md">
+<div class="flex items-center gap-3 cursor-pointer">
+<div class="size-8 rounded-full bg-cover bg-center" data-alt="Active contact avatar" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDfSTEzdgsR-8bBbzu-o5cZYL2Z0fwxy2CLtI-r8ZbXsvAR2dANfF5ZBrquEWqPB-4QEN1AH6iqQQ7OTSM8aUIUJQo05iEnAovMCbYs2KSYvIlLYHPUs59oCA7mLLtO2IFN-0Mvz_vxzKUdZ3D7R6K1y_039goK8K5S7NlPfL4Xo3cnGVu_tlr6iyVUkloIQG9yHzX1_GtRTGiMCjCx2VRPgXH9F2oCPLbkf0NaFGSSteRDSHGyb1YeHz7MZWUaQRskNgZQ6D8fb9yb')"></div>
+<div class="flex flex-col">
+<p class="font-bold text-sm leading-tight">Jordan Smith</p>
+<p class="text-xs text-slate-500">Active now</p>
+</div>
+</div>
+<button class="p-2 hover:bg-slate-200 dark:hover:bg-slate-800 rounded-full transition-colors text-slate-500 dark:text-slate-400">
+<span class="material-symbols-outlined">info</span>
+</button>
+</header>
+<!-- Message Feed -->
+<div class="flex-1 overflow-y-auto p-4 flex flex-col gap-4 custom-scrollbar">
+<!-- Timestamp separator -->
+<div class="flex justify-center my-4">
+<span class="text-xs text-slate-500 px-3 py-1 bg-slate-100 dark:bg-slate-800 rounded-full">Monday, 2:45 PM</span>
+</div>
+<!-- Received Message -->
+<div class="flex flex-col items-start max-w-[80%]">
+<div class="bg-slate-100 dark:bg-slate-800 px-4 py-2 rounded-xl rounded-bl-none text-sm leading-relaxed">
+                        Hey Alex, hope you're having a great week! Did you get a chance to look at the new UI components?
+                    </div>
+<span class="text-[10px] text-slate-500 mt-1 ml-1">2:46 PM</span>
+</div>
+<!-- Sent Message -->
+<div class="flex flex-col items-end self-end max-w-[80%]">
+<div class="bg-primary text-white px-4 py-2 rounded-xl rounded-br-none text-sm leading-relaxed">
+                        Hey Jordan! Yes, I just went through them. They look incredibly clean. I love the new dark mode palette.
+                    </div>
+<span class="text-[10px] text-slate-500 mt-1 mr-1">2:48 PM</span>
+</div>
+<!-- Sent Message 2 -->
+<div class="flex flex-col items-end self-end max-w-[80%]">
+<div class="bg-primary text-white px-4 py-2 rounded-xl rounded-br-none text-sm leading-relaxed shadow-sm">
+                        I'm almost finished with the DM layout integration. Should be ready for review in an hour.
+                    </div>
+<div class="flex items-center gap-1 mt-1 mr-1">
+<span class="text-[10px] text-slate-500">2:49 PM · Seen</span>
+</div>
+</div>
+<!-- Received Message 2 -->
+<div class="flex flex-col items-start max-w-[80%] mt-2">
+<div class="bg-slate-100 dark:bg-slate-800 px-4 py-2 rounded-xl rounded-bl-none text-sm leading-relaxed">
+                        That's perfect timing! Let's catch up later today. I have some updates on the new project that I'd like to sync on.
+                    </div>
+<span class="text-[10px] text-slate-500 mt-1 ml-1">3:02 PM</span>
+</div>
+<!-- Received Image -->
+<div class="flex flex-col items-start max-w-[300px] mt-2">
+<div class="rounded-xl overflow-hidden border border-slate-200 dark:border-slate-800">
+<div class="w-full aspect-video bg-cover bg-center" data-alt="Abstract colorful design pattern preview" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAlyVft4PaeKE3U752yNsY1coV7APJmbsyW5Q4yptzdoUWUnHRnzDO42cI0bgn9BIXDdMy45XFD3AQ9kF5MrbxanXrd7qFe1eK7rhOeDkvG9CFG2ai1ufWPp5VcrlgQF9GJ7IQm20HhIkc7kPpSU7LmnFYulQUYC_UEBLXT71bwaihD2N1fb2Ihm2P3d3Bthp-KP_cJ9RxQOSC_0RT0jdUoy7kTnt_DfKwwQv_Bk_e45UNWzvrwhbV5l8HYAPAmP2jtsAzAFqzUsq_r')"></div>
+</div>
+<span class="text-[10px] text-slate-500 mt-1 ml-1">3:03 PM</span>
+</div>
+</div>
+<!-- Message Input Area -->
+<footer class="p-4 border-t border-slate-200 dark:border-slate-800">
+<div class="flex items-center gap-2 bg-slate-100 dark:bg-slate-800/80 rounded-2xl px-3 py-2">
+<button class="p-1 text-primary hover:bg-primary/10 rounded-full transition-colors shrink-0">
+<span class="material-symbols-outlined text-xl">image</span>
+</button>
+<button class="p-1 text-primary hover:bg-primary/10 rounded-full transition-colors shrink-0">
+<span class="material-symbols-outlined text-xl">gif_box</span>
+</button>
+<button class="p-1 text-primary hover:bg-primary/10 rounded-full transition-colors shrink-0">
+<span class="material-symbols-outlined text-xl">sentiment_satisfied</span>
+</button>
+<input class="flex-1 bg-transparent border-none focus:ring-0 text-sm py-1 placeholder:text-slate-500" placeholder="Start a new message" type="text"/>
+<button class="p-2 text-primary hover:bg-primary/10 rounded-full transition-colors shrink-0 flex items-center justify-center">
+<span class="material-symbols-outlined text-xl" style="font-variation-settings: 'FILL' 1">send</span>
+</button>
+</div>
+</footer>
+</section>
+</div>
+</body></html>

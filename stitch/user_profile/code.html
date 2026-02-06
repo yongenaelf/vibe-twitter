@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>User Profile | Chirp</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#0d7ff2",
+                        "background-light": "#f5f7f8",
+                        "background-dark": "#101922",
+                    },
+                    fontFamily: {
+                        "display": ["Plus Jakarta Sans"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-white transition-colors duration-200">
+<div class="max-w-[1280px] mx-auto flex justify-center min-h-screen">
+<!-- Left Sidebar Navigation -->
+<aside class="w-64 flex flex-col justify-between py-4 px-4 sticky top-0 h-screen border-r border-slate-200 dark:border-slate-800">
+<div class="flex flex-col gap-6">
+<!-- Logo -->
+<div class="flex items-center gap-3 px-3">
+<div class="bg-primary size-8 rounded-lg flex items-center justify-center text-white">
+<span class="material-symbols-outlined font-bold">flutter_dash</span>
+</div>
+<h1 class="text-xl font-extrabold tracking-tight">Chirp</h1>
+</div>
+<!-- Nav Items -->
+<nav class="flex flex-col gap-1">
+<a class="flex items-center gap-4 px-4 py-3 rounded-full hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors" href="#">
+<span class="material-symbols-outlined text-[28px]">home</span>
+<span class="text-lg font-medium">Home</span>
+</a>
+<a class="flex items-center gap-4 px-4 py-3 rounded-full hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors" href="#">
+<span class="material-symbols-outlined text-[28px]">explore</span>
+<span class="text-lg font-medium">Explore</span>
+</a>
+<a class="flex items-center gap-4 px-4 py-3 rounded-full hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors" href="#">
+<span class="material-symbols-outlined text-[28px]">notifications</span>
+<span class="text-lg font-medium">Notifications</span>
+</a>
+<a class="flex items-center gap-4 px-4 py-3 rounded-full hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors" href="#">
+<span class="material-symbols-outlined text-[28px]">mail</span>
+<span class="text-lg font-medium">Messages</span>
+</a>
+<a class="flex items-center gap-4 px-4 py-3 rounded-full bg-slate-200 dark:bg-slate-800 transition-colors" href="#">
+<span class="material-symbols-outlined text-[28px] fill-current">person</span>
+<span class="text-lg font-bold">Profile</span>
+</a>
+<a class="flex items-center gap-4 px-4 py-3 rounded-full hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors" href="#">
+<span class="material-symbols-outlined text-[28px]">more_horiz</span>
+<span class="text-lg font-medium">More</span>
+</a>
+</nav>
+<button class="w-full bg-primary hover:bg-primary/90 text-white font-bold py-3.5 rounded-full shadow-lg shadow-primary/20 transition-all">
+                    Post Chirp
+                </button>
+</div>
+<!-- Profile Mini Card -->
+<div class="flex items-center justify-between p-3 rounded-full hover:bg-slate-200 dark:hover:bg-slate-800 cursor-pointer">
+<div class="flex items-center gap-3">
+<img class="size-10 rounded-full border border-slate-200 dark:border-slate-700" data-alt="User avatar placeholder profile picture" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCXkLNKjyrPJ02H34yCadx4_lR9G3P79n4uOSELR3E1Bsb1ZvhJo1H-iAZszBlWpYjZGJyiR9dFuin2H2-CYJXcKmkCmbMBdNs6qDfw4qKxm-7O923WSo081AnE5VXuxBNuZXvcNKfQgXR9rPlbCLOC34D5SyjVBeVSFOTHuiBvDhHYcez6ZIpKMjbpkcL1kzhP6h5V_5fKZzg_HBMTZv7Wo4j5_kcH_OkJU95iDQ8ww9ONqfVORSXHpEZrka4oqaytb_5TJAHN4dk2"/>
+<div class="flex flex-col">
+<span class="font-bold text-sm">Alex Rivera</span>
+<span class="text-slate-500 text-xs">@arivera_dev</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-slate-500">more_horiz</span>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="flex-1 max-w-[600px] min-h-screen border-r border-slate-200 dark:border-slate-800">
+<!-- Sticky Header Title -->
+<div class="sticky top-0 z-10 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md px-4 py-3 flex items-center gap-6 border-b border-slate-200 dark:border-slate-800">
+<button class="p-2 rounded-full hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors">
+<span class="material-symbols-outlined">arrow_back</span>
+</button>
+<div>
+<h2 class="text-xl font-bold leading-tight">Alex Rivera</h2>
+<p class="text-slate-500 text-sm">1,428 Chirps</p>
+</div>
+</div>
+<!-- Profile Header Section -->
+<div class="relative">
+<!-- Cover Image -->
+<div class="h-48 w-full bg-slate-200 dark:bg-slate-800 bg-cover bg-center" data-alt="Dynamic abstract dark blue background pattern" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuALHuxpissk27rkAWPyA7_X21rIBiJsMOIlAZLEMuY4kH9C1ZAd8aN-yFl3eBbBflJSVepLQ7MQvgDtFngqKTFv98oUrWkytcNi30ctcxgwNsnw-Mi5OWj1sgaRvIv6WeWsA6qv7KqeGav6JJnpB-5Bk_QTUMOyWdRu5AD2T955yRByU_J1E-4ITg0JyzMEllbrnAYd0keV6NCy0MTaYL70kmzpwc0MBgqLKeCkwT7xLCDKJsBuzLllNpmPoBbU1SjPvkrlqbKWiwhS');"></div>
+<div class="px-4 pb-4">
+<div class="flex justify-between items-end">
+<!-- Profile Image -->
+<div class="-mt-16 relative">
+<div class="size-32 rounded-full border-4 border-background-light dark:border-background-dark overflow-hidden bg-slate-200 dark:bg-slate-800">
+<img class="w-full h-full object-cover" data-alt="Large circular professional headshot profile image" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDgLjeqko_iqECdPomMXbJhjT5cas2NWUmKvTQV6_lxV7tQOvm75mwKUNRnqVe4rqAAuKbTwdF2whO_WF-4oYsFy8f-vErVqx5V0kScK0LO76E2hqvKhLK6HEsrTtHOFgWoziqi5w6qKBsbSTS_RUOib7cqENzO_ybQsocx0XfiqEWRqoJu9eBf0lAAp7MkSOEzOx__b1b4OguUD_wO3lESd5MUc4QzcFLmEvpT1-GCfyg5moTKTPjGD9qw5cMFd-jDJwXrW6K6AMBS"/>
+</div>
+</div>
+<!-- Edit Button -->
+<button class="mb-2 px-4 py-2 border border-slate-300 dark:border-slate-700 rounded-full font-bold hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors">
+                            Edit profile
+                        </button>
+</div>
+<!-- User Info -->
+<div class="mt-4">
+<h3 class="text-2xl font-extrabold flex items-center gap-1">
+                            Alex Rivera
+                            <span class="material-symbols-outlined text-primary text-xl">verified</span>
+</h3>
+<p class="text-slate-500">@arivera_dev</p>
+</div>
+<p class="mt-3 text-[15px] leading-relaxed">
+                        Building the future of social web. React Specialist | Design Systems Enthusiast | ☕️ Caffeine fueled coder.
+                    </p>
+<!-- Metadata -->
+<div class="flex flex-wrap gap-x-4 gap-y-1 mt-3 text-slate-500 text-sm">
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-base">location_on</span>
+<span>San Francisco, CA</span>
+</div>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-base">link</span>
+<a class="text-primary hover:underline" href="#">arivera.dev</a>
+</div>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-base">calendar_month</span>
+<span>Joined October 2023</span>
+</div>
+</div>
+<!-- Stats -->
+<div class="flex gap-5 mt-4 text-sm">
+<button class="hover:underline">
+<span class="font-bold">1,240</span> <span class="text-slate-500">Following</span>
+</button>
+<button class="hover:underline">
+<span class="font-bold">45.8k</span> <span class="text-slate-500">Followers</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Tabs -->
+<div class="flex border-b border-slate-200 dark:border-slate-800">
+<button class="flex-1 py-4 text-sm font-bold relative hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors">
+                    Chirps
+                    <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-16 h-1 bg-primary rounded-full"></div>
+</button>
+<button class="flex-1 py-4 text-sm font-medium text-slate-500 hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors">Replies</button>
+<button class="flex-1 py-4 text-sm font-medium text-slate-500 hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors">Media</button>
+<button class="flex-1 py-4 text-sm font-medium text-slate-500 hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors">Likes</button>
+</div>
+<!-- Feed Items (Chirps) -->
+<div class="divide-y divide-slate-200 dark:divide-slate-800">
+<!-- Chirp 1 -->
+<article class="p-4 flex gap-3 hover:bg-slate-50 dark:hover:bg-slate-800/50 cursor-pointer transition-colors">
+<img class="size-10 rounded-full h-fit" data-alt="Small user avatar for chirp post" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBCT4x2U5Nwh-TKPKr2FWxYPQ6l3FiH_PU4MqA4PHQ9YN5mA4xP7oyc9F07SXxQrbre9qi8jv_J4wwik7XEuWShnFJsZpeic5Pn5Oy0FmDuK-1pjHV0u3KhYOUrcMHnrqHCiTWHVz3f7nsNxI6_NsyIxjfZDQNvb816zgV1jEFzn6y7q7t_hgQBGMJ2WYDaEACp56q0aXOPle2S454iFdmxOYCYfKLmEDi0_yGmavp5ZOM6PCv5l3-Bq_hGQmULBKcn2hfosP8xRgeA"/>
+<div class="flex-1">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-1 flex-wrap">
+<span class="font-bold hover:underline">Alex Rivera</span>
+<span class="material-symbols-outlined text-primary text-[14px]">verified</span>
+<span class="text-slate-500">@arivera_dev · 2h</span>
+</div>
+<span class="material-symbols-outlined text-slate-500 text-sm">more_horiz</span>
+</div>
+<p class="mt-1 text-[15px]">Just pushed a major update to the design system. The dark mode performance is now 40% faster. Feedback welcome! 🚀</p>
+<div class="mt-3 flex justify-between max-w-sm text-slate-500">
+<button class="flex items-center gap-2 group hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-[18px] p-2 rounded-full group-hover:bg-primary/10">chat_bubble</span>
+<span class="text-xs font-medium">24</span>
+</button>
+<button class="flex items-center gap-2 group hover:text-green-500 transition-colors">
+<span class="material-symbols-outlined text-[18px] p-2 rounded-full group-hover:bg-green-500/10">repeat</span>
+<span class="text-xs font-medium">12</span>
+</button>
+<button class="flex items-center gap-2 group hover:text-pink-500 transition-colors">
+<span class="material-symbols-outlined text-[18px] p-2 rounded-full group-hover:bg-pink-500/10">favorite</span>
+<span class="text-xs font-medium">182</span>
+</button>
+<button class="flex items-center gap-2 group hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-[18px] p-2 rounded-full group-hover:bg-primary/10">bar_chart</span>
+<span class="text-xs font-medium">12.4k</span>
+</button>
+</div>
+</div>
+</article>
+<!-- Chirp 2 (With Image) -->
+<article class="p-4 flex gap-3 hover:bg-slate-50 dark:hover:bg-slate-800/50 cursor-pointer transition-colors">
+<img class="size-10 rounded-full h-fit" data-alt="User avatar for second chirp post" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAwYByr7etbx7oeiRvKyVmTCnuVsJ35cETPu2Yh9Pm4cEy3gIZ9GsIoByrOuMdikZPEWFnWhtyah9b4Wc2YKr8dabb87ABuRQuTEJVvIh7BW9cT_AF_Dey9NmMWwQuVA82hpWk_AW-wa5zdY_EwaD01a9CrLJOj9Bu0UmZ3Y6vNzauNtx-jCX2jOXUQ6WW1eE5WDUNtglbmZG3iEBdrxiEgIAHr0O-IJvny1_-xhdAJCa75Zwh6bvnSBTHdlkYq6zBHTc6lxih3upPn"/>
+<div class="flex-1">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-1">
+<span class="font-bold hover:underline">Alex Rivera</span>
+<span class="material-symbols-outlined text-primary text-[14px]">verified</span>
+<span class="text-slate-500">@arivera_dev · Oct 24</span>
+</div>
+<span class="material-symbols-outlined text-slate-500 text-sm">more_horiz</span>
+</div>
+<p class="mt-1 text-[15px]">The workspace is finally complete. Minimalist vibes for maximum focus. 💻✨</p>
+<div class="mt-3 border border-slate-200 dark:border-slate-700 rounded-xl overflow-hidden aspect-video">
+<img class="w-full h-full object-cover" data-alt="Clean aesthetic workspace with a laptop and plants" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAb36CO3sfD3Fvp4z5xI9o38CGHDLF5Wx0VbdqUqFSugVDOI56RAwSypcmnUoQ0wFGG-htlbpLp43N6hcvAQgo42OkVvBaMUH_fKLHUAnliT6akt4yMmtboeMuqAfyD_H8Y84dJvi2sb79y7T2TOKBnY7N-HkXNn63aCY0M8Eapl49PxgQ9-MBKqeMiOICEi7GWN5NRMAIKvLGOkU4-jkGc2llk1WPpYgs08-WVEo5vs65KslN_Ab93UxOq0X5tiFRIar9OejfRBE2B"/>
+</div>
+<div class="mt-3 flex justify-between max-w-sm text-slate-500">
+<button class="flex items-center gap-2 group hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-[18px] p-2 rounded-full group-hover:bg-primary/10">chat_bubble</span>
+<span class="text-xs font-medium">56</span>
+</button>
+<button class="flex items-center gap-2 group hover:text-green-500 transition-colors">
+<span class="material-symbols-outlined text-[18px] p-2 rounded-full group-hover:bg-green-500/10">repeat</span>
+<span class="text-xs font-medium">31</span>
+</button>
+<button class="flex items-center gap-2 group hover:text-pink-500 transition-colors">
+<span class="material-symbols-outlined text-[18px] p-2 rounded-full group-hover:bg-pink-500/10 text-pink-500 fill-current">favorite</span>
+<span class="text-xs font-medium text-pink-500">1.2k</span>
+</button>
+<button class="flex items-center gap-2 group hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-[18px] p-2 rounded-full group-hover:bg-primary/10">bar_chart</span>
+<span class="text-xs font-medium">45k</span>
+</button>
+</div>
+</div>
+</article>
+<!-- Chirp 3 -->
+<article class="p-4 flex gap-3 hover:bg-slate-50 dark:hover:bg-slate-800/50 cursor-pointer transition-colors">
+<img class="size-10 rounded-full h-fit" data-alt="User avatar for third chirp post" src="https://lh3.googleusercontent.com/aida-public/AB6AXuClhE5PH-Ob3bV3IrRqNxKO3UYfF1njqS-B8oVokp2Q5h0zbRHKWZ4T2sj6FxEyUH0zevrHxNwKbB7-wCYYtNSyaXCwGJ7QeBUt2j_ER9HbN6_gQMXVZZ7iRSNZ8FvI_90pHgFvcXCJVK9mwlH5D-sJxEvFMTIyIsgz_QKj6RZ1acB2r1RsV_cpHYnfdXD_7b-ss9gX4FGDOApo4wVIre-yXymourMS4GYxpIz_RlLM8uLYIAQhRBtBh9qMLGdmR5EFbnaZVWkxrwBE"/>
+<div class="flex-1">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-1">
+<span class="font-bold hover:underline">Alex Rivera</span>
+<span class="material-symbols-outlined text-primary text-[14px]">verified</span>
+<span class="text-slate-500">@arivera_dev · Oct 23</span>
+</div>
+<span class="material-symbols-outlined text-slate-500 text-sm">more_horiz</span>
+</div>
+<p class="mt-1 text-[15px]">Consistency is key. 100 days of code streak continues. Who else is grinding today?</p>
+<div class="mt-3 flex justify-between max-w-sm text-slate-500">
+<button class="flex items-center gap-2 group hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-[18px] p-2 rounded-full group-hover:bg-primary/10">chat_bubble</span>
+<span class="text-xs font-medium">8</span>
+</button>
+<button class="flex items-center gap-2 group hover:text-green-500 transition-colors">
+<span class="material-symbols-outlined text-[18px] p-2 rounded-full group-hover:bg-green-500/10">repeat</span>
+<span class="text-xs font-medium">3</span>
+</button>
+<button class="flex items-center gap-2 group hover:text-pink-500 transition-colors">
+<span class="material-symbols-outlined text-[18px] p-2 rounded-full group-hover:bg-pink-500/10">favorite</span>
+<span class="text-xs font-medium">45</span>
+</button>
+<button class="flex items-center gap-2 group hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-[18px] p-2 rounded-full group-hover:bg-primary/10">bar_chart</span>
+<span class="text-xs font-medium">2.1k</span>
+</button>
+</div>
+</div>
+</article>
+</div>
+</main>
+<!-- Right Sidebar (Discovery) -->
+<aside class="w-80 pl-8 flex flex-col gap-4 py-4 sticky top-0 h-screen overflow-y-auto no-scrollbar">
+<!-- Search -->
+<div class="sticky top-0 bg-background-light dark:bg-background-dark py-1 pb-3 z-10">
+<div class="relative group">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-slate-500 group-focus-within:text-primary">search</span>
+<input class="w-full bg-slate-200 dark:bg-slate-800 border-none rounded-full py-3 pl-12 pr-4 focus:ring-1 focus:ring-primary focus:bg-background-light dark:focus:bg-background-dark transition-all text-sm outline-none" placeholder="Search Chirp" type="text"/>
+</div>
+</div>
+<!-- You Might Like -->
+<section class="bg-slate-100 dark:bg-slate-900 rounded-xl overflow-hidden">
+<h2 class="text-xl font-extrabold px-4 py-3">You might like</h2>
+<div class="flex flex-col">
+<!-- User 1 -->
+<div class="flex items-center justify-between px-4 py-3 hover:bg-slate-200/50 dark:hover:bg-slate-800/50 cursor-pointer transition-colors">
+<div class="flex items-center gap-3">
+<img class="size-10 rounded-full" data-alt="Recommended user profile picture" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCDpNik6IB_P3GWs0hbibKUUQsJhNkcr7iw97Ya-DveePPII1wTUQQXQcd8rEP_D6wCkw42fNeuc6ooIDSDu2g_rDr41y8C_AA4sTw-G5ufzNWv_qiC4ME55_690ZcHEdYkUD792ZdC6beyUOsC2SKIHejfYqvC9zTgzYC6QYONZWNpGpE1bRBIeTbKbnYQpcgv3pIzezZ41Vrw2cbVO6bbFnurR07lTnjMzYDULGa9Rll5BvmLaPRTEJsMDmLzQqvdARFF2xw0VlVe"/>
+<div class="flex flex-col">
+<span class="font-bold text-sm hover:underline">Sarah Chen</span>
+<span class="text-slate-500 text-xs">@schen_ux</span>
+</div>
+</div>
+<button class="bg-slate-900 dark:bg-white text-white dark:text-slate-900 px-4 py-1.5 rounded-full text-xs font-bold hover:opacity-90">Follow</button>
+</div>
+<!-- User 2 -->
+<div class="flex items-center justify-between px-4 py-3 hover:bg-slate-200/50 dark:hover:bg-slate-800/50 cursor-pointer transition-colors">
+<div class="flex items-center gap-3">
+<img class="size-10 rounded-full" data-alt="Recommended user profile picture" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCo0kLjTaUP72GfBbD64pHkN4b6CsHaXBO1Ew5zMm7g-LuO0SOWY3oddNnN-1K6uqxcVd_El8s9juMbVVfAPucxXOvScLqswPMchTOTcUN9OkVeV8EDmVMJT-Ac8USXY4DrGej6nbjIutBSn60jyzY7rC5h1NCxOPVVXq-PdvCyxtSsvY3UBsBejVbSAV5PTh4VLSSeC2haD7q8Wo6MgtAdogwbZLRfO8rInfPHNGd9QfHSAR3yGdNA3gQv1HMtxa529ecclonOsx9g"/>
+<div class="flex flex-col">
+<div class="flex items-center gap-0.5">
+<span class="font-bold text-sm hover:underline">Vercel</span>
+<span class="material-symbols-outlined text-primary text-[12px]">verified</span>
+</div>
+<span class="text-slate-500 text-xs">@vercel</span>
+</div>
+</div>
+<button class="bg-slate-900 dark:bg-white text-white dark:text-slate-900 px-4 py-1.5 rounded-full text-xs font-bold hover:opacity-90">Follow</button>
+</div>
+<!-- User 3 -->
+<div class="flex items-center justify-between px-4 py-3 hover:bg-slate-200/50 dark:hover:bg-slate-800/50 cursor-pointer transition-colors">
+<div class="flex items-center gap-3">
+<img class="size-10 rounded-full" data-alt="Recommended user profile picture" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAJ3e3bVAjAilDb-sAGRraLkXpviYV2iNgxsbJJ6D6VKgUu1x1t2ic3qvqTU5Scn-dxTytZ8AiPTrxO8FnbGnBdZfJEUDBCpmrPYv97G0yJjcSC0kzSy8mpElqe5dCgvu7sD6X9eFxfgVlvMGr6K85pbQfx1NRLD68kW7iAD9qzZavyNnJzd4G8jfcQIESW1cKb3NSGVHp9egcnE7-VEKGohOaX3VektGHjNsQfLKK_XkW4rP6UC8uBjW6mHREnPE6rFQN1_uTaW7KK"/>
+<div class="flex flex-col">
+<span class="font-bold text-sm hover:underline">Jason Miller</span>
+<span class="text-slate-500 text-xs">@jmiller_codes</span>
+</div>
+</div>
+<button class="bg-slate-900 dark:bg-white text-white dark:text-slate-900 px-4 py-1.5 rounded-full text-xs font-bold hover:opacity-90">Follow</button>
+</div>
+<button class="text-primary text-sm px-4 py-4 text-left hover:bg-slate-200/50 dark:hover:bg-slate-800/50 transition-colors">
+                        Show more
+                    </button>
+</div>
+</section>
+<!-- Trends For You -->
+<section class="bg-slate-100 dark:bg-slate-900 rounded-xl overflow-hidden">
+<h2 class="text-xl font-extrabold px-4 py-3">Trends for you</h2>
+<div class="flex flex-col">
+<div class="px-4 py-3 hover:bg-slate-200/50 dark:hover:bg-slate-800/50 cursor-pointer transition-colors">
+<div class="flex justify-between text-xs text-slate-500">
+<span>Technology · Trending</span>
+<span class="material-symbols-outlined text-sm">more_horiz</span>
+</div>
+<p class="font-bold text-sm mt-0.5">#ReactConf2024</p>
+<p class="text-xs text-slate-500 mt-0.5">15.4k Chirps</p>
+</div>
+<div class="px-4 py-3 hover:bg-slate-200/50 dark:hover:bg-slate-800/50 cursor-pointer transition-colors">
+<div class="flex justify-between text-xs text-slate-500">
+<span>Design · Trending</span>
+<span class="material-symbols-outlined text-sm">more_horiz</span>
+</div>
+<p class="font-bold text-sm mt-0.5">Glassmorphism</p>
+<p class="text-xs text-slate-500 mt-0.5">8,291 Chirps</p>
+</div>
+<div class="px-4 py-3 hover:bg-slate-200/50 dark:hover:bg-slate-800/50 cursor-pointer transition-colors">
+<div class="flex justify-between text-xs text-slate-500">
+<span>Development · Trending</span>
+<span class="material-symbols-outlined text-sm">more_horiz</span>
+</div>
+<p class="font-bold text-sm mt-0.5">Tailwind v4</p>
+<p class="text-xs text-slate-500 mt-0.5">12.1k Chirps</p>
+</div>
+</div>
+</section>
+<!-- Footer links -->
+<footer class="px-4 py-2 flex flex-wrap gap-x-3 gap-y-1 text-xs text-slate-500">
+<a class="hover:underline" href="#">Terms of Service</a>
+<a class="hover:underline" href="#">Privacy Policy</a>
+<a class="hover:underline" href="#">Cookie Policy</a>
+<a class="hover:underline" href="#">Accessibility</a>
+<a class="hover:underline" href="#">Ads info</a>
+<span>© 2024 Chirp Inc.</span>
+</footer>
+</aside>
+</div>
+</body></html>
